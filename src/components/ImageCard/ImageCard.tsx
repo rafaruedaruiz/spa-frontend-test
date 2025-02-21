@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { LIKE_IMAGE_MUTATION } from '../graphql/mutations';
+import { LIKE_IMAGE_MUTATION } from '../../graphql/mutations';
+import styles from './ImageCard.module.css';
 
 interface ImageData {
   id: string;
@@ -51,22 +52,22 @@ const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
   };
 
   return (
-    <Card className="shadow-sm">
-      <Card.Img variant="top" src={image.picture} alt={image.title} />
-      <Card.Body>
-        <Card.Title>{image.title}</Card.Title>
-        <Card.Text>
-          <strong>Autor:</strong> {image.author} <br />
-          <strong>Precio:</strong> ${image.price} <br />
-          <strong>Likes:</strong> {likesCount}
+    <Card className={styles.card}>
+      <div className={styles.priceTag}>${image.price}</div>
+      <div className={styles.imageContainer}>
+        <Card.Img className={styles.cardImg} variant="top" src={image.picture} alt={image.title} />
+        <div className={styles.likeContainer} onClick={handleLike}>
+          <span className={`${styles.likeIcon} ${liked ? styles.liked : ''}`}>
+            ♡
+          </span>
+          <span className={styles.likeCounter}>{likesCount}</span>
+        </div>
+      </div>
+      <Card.Body className={styles.body}>
+        <Card.Title className={styles.title}>{image.title}</Card.Title>
+        <Card.Text className={styles.author}>
+          by <span>{image.author}</span>
         </Card.Text>
-        <Button
-          variant={liked ? 'danger' : 'primary'}
-          onClick={handleLike}
-          className="w-100"
-        >
-          {liked ? 'Dislike' : 'Like'}
-        </Button>
       </Card.Body>
     </Card>
   );

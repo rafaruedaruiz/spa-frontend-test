@@ -1,18 +1,30 @@
 'use client';
 
 import { useState } from 'react';
-import SearchBar from '../components/SearchBar';
-import ImageList from '../components/ImageList';
+import Image from 'next/image';
+import SearchBar from '../components/SearchBar/SearchBar';
+import ImageList from '../components/ImageList/ImageList';
+import styles from './page.module.css';
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <div>
-      <header style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#f5f5f5' }}>
-        <SearchBar value={searchTerm} onChange={setSearchTerm} />
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <div className={styles.logoContainer}>
+          <Image
+            src="/samyLogo.svg"
+            alt="Samy Logo"
+            width={120}
+            height={120}
+          />
+        </div>
+        <div className={styles.searchBarContainer}>
+          <SearchBar value={searchTerm} onChange={setSearchTerm} />
+        </div>
       </header>
-      <main style={{ padding: '1rem' }}>
+      <main className={styles.main}>
         <ImageList searchTerm={searchTerm} />
       </main>
     </div>
