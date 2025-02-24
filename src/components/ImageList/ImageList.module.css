@@ -1,5 +1,5 @@
 .scrollableDiv {
-  height: 80vh;
+  height: 100vh;
   overflow: auto;
   padding: 1rem;
 }

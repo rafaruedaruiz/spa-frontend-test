@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { useQuery } from '@apollo/client';
 import { GET_IMAGES } from '../../graphql/queries';
 import ImageCard from '../ImageCard/ImageCard';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import styles from './ImageList.module.css';
 
 const InfiniteScroll = dynamic(() => import('react-infinite-scroll-component'), { ssr: false });
@@ -66,7 +66,6 @@ const ImageList: React.FC<ImageListProps> = ({ searchTerm }) => {
   };
 
   return (
-    <Container fluid>
       <div id="scrollableDiv" className={styles.scrollableDiv}>
         <InfiniteScroll
           dataLength={data?.images?.nodes.length || 0}
@@ -78,15 +77,14 @@ const ImageList: React.FC<ImageListProps> = ({ searchTerm }) => {
           <Row className="justify-content-center g-0">
             {data?.images?.nodes.map((image, index) => (
               <Col key={`${image.id}-${index}`} xs={12} sm={12} md={6} lg={4} xl={4} xxl={3}>
-              <div className={styles.imageWrapper}>
-                <ImageCard image={image} />
-              </div>
-            </Col>            
+                <div className={styles.imageWrapper}>
+                  <ImageCard image={image} />
+                </div>
+              </Col>
             ))}
           </Row>
         </InfiniteScroll>
       </div>
-    </Container>
   );
 };
 

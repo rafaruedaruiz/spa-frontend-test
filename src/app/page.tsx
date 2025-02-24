@@ -24,9 +24,7 @@ export default function HomePage() {
           <SearchBar value={searchTerm} onChange={setSearchTerm} />
         </div>
       </header>
-      <main className={styles.main}>
         <ImageList searchTerm={searchTerm} />
-      </main>
     </div>
   );
 }

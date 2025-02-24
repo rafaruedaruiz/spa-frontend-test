@@ -1,6 +1,8 @@
 .container {
   background-color: #F6F6F6;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -23,5 +25,6 @@
 }
 
 .main {
+  flex: 1;
   padding: 1.5%;
 }
