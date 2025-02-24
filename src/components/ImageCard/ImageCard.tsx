@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LIKE_IMAGE_MUTATION } from '../../graphql/mutations';
+import { Heart, Send } from 'react-bootstrap-icons';
 import styles from './ImageCard.module.css';
 
 interface ImageData {
@@ -56,11 +57,19 @@ const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
       <div className={styles.priceTag}>${image.price}</div>
       <div className={styles.imageContainer}>
         <Card.Img className={styles.cardImg} variant="top" src={image.picture} alt={image.title} />
-        <div className={styles.likeContainer} onClick={handleLike}>
-          <span className={`${styles.likeIcon} ${liked ? styles.liked : ''}`}>
-            ♡
-          </span>
-          <span className={styles.likeCounter}>{likesCount}</span>
+        <div className={styles.actionContainer}>
+          <div className={styles.likeContainer} onClick={handleLike}>
+            {liked ? (
+              <Heart className={`${styles.likeIcon} ${styles.liked}`} />
+            ) : (
+              <Heart className={styles.likeIcon} />
+            )}
+            <span className={styles.likeCounter}>{likesCount}</span>
+          </div>
+          <div className={styles.shareContainer}>
+            <Send className={styles.shareIcon} />
+            <span className={styles.shareCounter}>0</span>
+          </div>
         </div>
       </div>
       <Card.Body className={styles.body}>
