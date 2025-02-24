@@ -3,7 +3,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 }
 
 .header {
@@ -27,4 +26,25 @@
 .main {
   flex: 1;
   padding: 1.5%;
+}
+
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .logoContainer {
+    margin: 0 auto;
+  }
+
+  .logoImage {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .searchBarContainer {
+    margin: 0rem auto 0;
+  }
 }

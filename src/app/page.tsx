@@ -16,8 +16,15 @@ export default function HomePage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.logoContainer} onClick={handleLogoClick} >
-          <Image src="/samyLogo.svg" alt="Samy Logo" width={120} height={120} />
+        <div className={styles.logoContainer} onClick={handleLogoClick}>
+          <Image
+            src="/samyLogo.svg"
+            alt="Samy Logo"
+            width={120}
+            height={120}
+            style={{ cursor: 'pointer' }}
+            className={styles.logoImage}
+          />
         </div>
         <div className={styles.searchBarContainer}>
           <SearchBar value={searchTerm} onChange={setSearchTerm} />

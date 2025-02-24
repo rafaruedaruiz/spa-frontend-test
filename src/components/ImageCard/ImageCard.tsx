@@ -78,6 +78,20 @@ const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
           by <span>{image.author}</span>
         </Card.Text>
       </Card.Body>
+      <div className={styles.mobileActionContainer}>
+        <div className={styles.mobileLeft} onClick={handleLike}>
+        <span className={styles.mobileCounter}>{likesCount}</span>
+          {liked ? (
+            <Heart className={`${styles.mobileIcon} ${styles.liked}`} />
+          ) : (
+            <Heart className={styles.mobileIcon} />
+          )}
+        </div>
+        <div className={styles.mobileRight}>
+        <span className={styles.mobileCounter}>0</span>
+          <Send className={styles.mobileIcon} />
+        </div>
+      </div>
     </Card>
   );
 };
