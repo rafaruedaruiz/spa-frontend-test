@@ -15,13 +15,12 @@
 }
 
 .logoContainer {
-  margin-left: 5rem;
+  margin-left: 4%;
 }
 
 .searchBarContainer {
   margin-left: auto;
-  max-width: 400px;
-  width: 100%;
+  margin-right: 4%;
 }
 
 .main {
