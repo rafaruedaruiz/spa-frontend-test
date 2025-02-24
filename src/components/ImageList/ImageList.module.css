@@ -1,21 +1,19 @@
 .scrollableDiv {
-    height: 80vh;
-    overflow: auto;
-    padding: 1rem;
-  }
-  
-  .scrollableDiv::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .scrollableDiv {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .imageWrapper {
-    margin: 0.2rem;
-    max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-  }  
+  height: 80vh;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.scrollableDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollableDiv {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.imageWrapper {
+  width: 92%;
+  margin: 0.2rem auto;
+}

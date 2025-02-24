@@ -77,11 +77,11 @@ const ImageList: React.FC<ImageListProps> = ({ searchTerm }) => {
         >
           <Row className="justify-content-center g-0">
             {data?.images?.nodes.map((image, index) => (
-              <Col key={`${image.id}-${index}`} xs={12} sm={6} md={4}>
-                <div className={styles.imageWrapper}>
-                  <ImageCard image={image} />
-                </div>
-              </Col>
+              <Col key={`${image.id}-${index}`} xs={12} sm={12} md={6} lg={4} xl={4} xxl={3}>
+              <div className={styles.imageWrapper}>
+                <ImageCard image={image} />
+              </div>
+            </Col>            
             ))}
           </Row>
         </InfiniteScroll>
